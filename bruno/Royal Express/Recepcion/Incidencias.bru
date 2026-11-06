@@ -1,0 +1,15 @@
+meta {
+  name: Incidencias de recepción
+  type: http
+  seq: 26
+}
+
+get {
+  url: {{baseUrl}}/api/recepcion/incidencias
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}

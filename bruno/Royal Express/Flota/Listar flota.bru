@@ -1,0 +1,15 @@
+meta {
+  name: Flota e historial
+  type: http
+  seq: 11
+}
+
+get {
+  url: {{baseUrl}}/api/flota
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}

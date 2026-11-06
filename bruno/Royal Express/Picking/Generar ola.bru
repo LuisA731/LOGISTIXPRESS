@@ -1,0 +1,24 @@
+meta {
+  name: Generar ola de picking
+  type: http
+  seq: 28
+}
+
+post {
+  url: {{baseUrl}}/api/picking/generar
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {}
+}
+
+docs {
+  Toma todos los pedidos BORRADOR y genera tareas ordenadas por pasillo.
+  Después copia el id de una tarea en `tareaId` para probar Confirmar tarea.
+}

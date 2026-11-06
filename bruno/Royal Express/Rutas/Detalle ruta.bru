@@ -1,0 +1,19 @@
+meta {
+  name: Detalle de ruta
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{baseUrl}}/api/rutas/{{rutaId}}
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+docs {
+  En la semilla, la ruta activa R-HOY-001 tiene id 2.
+}

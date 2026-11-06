@@ -1,0 +1,15 @@
+meta {
+  name: Existencias
+  type: http
+  seq: 10
+}
+
+get {
+  url: {{baseUrl}}/api/inventario/stock
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}

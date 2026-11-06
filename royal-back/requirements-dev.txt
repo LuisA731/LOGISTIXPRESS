@@ -1,0 +1,6 @@
+-r requirements.txt
+pytest>=8.0
+httpx2>=0.1
+ruff>=0.6
+pglast>=7.0
+embedded-postgres>=18.0

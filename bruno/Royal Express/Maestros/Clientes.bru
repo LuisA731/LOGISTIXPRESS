@@ -1,0 +1,15 @@
+meta {
+  name: Clientes
+  type: http
+  seq: 20
+}
+
+get {
+  url: {{baseUrl}}/api/maestros/clientes
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}

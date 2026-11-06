@@ -1,0 +1,34 @@
+meta {
+  name: Crear cliente
+  type: http
+  seq: 21
+}
+
+post {
+  url: {{baseUrl}}/api/maestros/clientes
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "codigo": "CD-BRUNO-001",
+    "nombre": "Cliente Bruno",
+    "tipo_cliente": "MINORISTA",
+    "zona": "NORTE",
+    "direccion": "Calle Bruno 100",
+    "colonia": "Centro",
+    "telefono": "81 0000 0001",
+    "contacto": "Prueba Bruno",
+    "latitud": 25.72,
+    "longitud": -100.30
+  }
+}
+
+docs {
+  Requiere admin u operador. El código es único.
+}

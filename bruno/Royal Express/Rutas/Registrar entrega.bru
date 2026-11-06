@@ -1,0 +1,33 @@
+meta {
+  name: Registrar entrega
+  type: http
+  seq: 8
+}
+
+post {
+  url: {{baseUrl}}/api/rutas/{{rutaId}}/paradas/{{paradaId}}/entrega
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "resultado": "ENTREGADO",
+    "recibio_nombre": "Sofía Treviño",
+    "firma_base64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=",
+    "foto_base64": null,
+    "motivo_fallo": null,
+    "comentario": "Entrega de prueba desde Bruno",
+    "reprogramado_para": null
+  }
+}
+
+docs {
+  La ruta debe estar EN_RUTA y la parada PENDIENTE.
+  Después de despachar, usa la parada 4 (pedido 7) de la semilla.
+  Para probar una falla, usa resultado FALLIDO y motivo_fallo CLIENTE_CERRADO.
+}

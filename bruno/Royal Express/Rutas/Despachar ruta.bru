@@ -1,0 +1,33 @@
+meta {
+  name: Despachar ruta
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{baseUrl}}/api/rutas/{{rutaId}}/despachar
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "guias": [
+      "LX-00071",
+      "LX-00072",
+      "LX-00073",
+      "LX-00081",
+      "LX-00082"
+    ]
+  }
+}
+
+docs {
+  Estas son las guías de la ruta R-HOY-001 en la semilla.
+  Prueba a quitar una para ver la validación de faltantes.
+  También puedes agregar una guía ajena para probar el rechazo.
+}

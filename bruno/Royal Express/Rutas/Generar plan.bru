@@ -1,0 +1,20 @@
+meta {
+  name: Generar plan del día
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/api/rutas/generar?replanificar=false
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+docs {
+  Consolida los pedidos LISTO sin ruta activa.
+  Cambia `replanificar=true` para cancelar las rutas PLANIFICADAS de hoy y recalcular.
+}

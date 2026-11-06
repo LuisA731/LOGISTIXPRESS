@@ -1,0 +1,55 @@
+services:
+  db:
+    build:
+      context: ./royal-back/db
+      dockerfile: Dockerfile
+    image: royal-db:local
+    container_name: logistixpress-db
+    environment:
+      POSTGRES_DB: logistixpress
+      POSTGRES_USER: logistix
+      POSTGRES_PASSWORD: logistix
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - "pg_isready -U logistix -d logistixpress && psql -U logistix -d logistixpress -tAc \"SELECT 1 FROM seguridad.usuarios LIMIT 1\" 2>/dev/null | grep -q 1"
+      interval: 5s
+      timeout: 5s
+      retries: 30
+    restart: unless-stopped
+
+  api:
+    build:
+      context: .
+      dockerfile: royal-back/Dockerfile
+    container_name: logistixpress-api
+    environment:
+      LOGISTIXPRESS_DSN: postgresql://logistix:logistix@db:5432/logistixpress
+      ROYAL_SECRETO: ${ROYAL_SECRETO:-cambiar-esta-clave-en-produccion}
+      ROYAL_TOKEN_HORAS: ${ROYAL_TOKEN_HORAS:-12}
+      MPLCONFIGDIR: /tmp/matplotlib
+    ports:
+      - "127.0.0.1:8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./royal-back/data/evidencias:/app/royal-back/data/evidencias:z
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/salud', timeout=3)"
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+    restart: unless-stopped
+
+volumes:
+  pgdata:

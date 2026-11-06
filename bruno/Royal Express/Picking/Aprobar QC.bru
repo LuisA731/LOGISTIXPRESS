@@ -1,0 +1,19 @@
+meta {
+  name: Aprobar QC
+  type: http
+  seq: 31
+}
+
+post {
+  url: {{baseUrl}}/api/picking/pedidos/{{pedidoId}}/aprobar
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+docs {
+  Marca el empaque como VALIDADO y el pedido como LISTO para rutas.
+}

@@ -1,0 +1,15 @@
+meta {
+  name: Resumen del panel
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/api/panel/resumen
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}

@@ -1,0 +1,13 @@
+.venv
+**/.venv
+**/__pycache__
+**/*.pyc
+**/*.pyo
+**/.pytest_cache
+**/.ruff_cache
+**/.env
+legacy
+royal-back/data/evidencias
+*.pdf
+image.webp
+.DS_Store

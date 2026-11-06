@@ -1,0 +1,27 @@
+meta {
+  name: Confirmar tarea de surtido
+  type: http
+  seq: 29
+}
+
+post {
+  url: {{baseUrl}}/api/picking/tareas/{{tareaId}}/confirmar
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "sku": "ACE-12",
+    "ubicacion": "A-02-1"
+  }
+}
+
+docs {
+  Ajusta sku/ubicacion a la tarea real. Si no coinciden, responde 409.
+  También puedes enviar {} para confirmar sin validación de escaneo.
+}

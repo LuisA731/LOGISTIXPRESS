@@ -1,0 +1,12 @@
+.venv/
+**/.venv/
+__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.ruff_cache/
+.env
+**/.env
+royal-back/data/evidencias/
+.tmp-jsdom/

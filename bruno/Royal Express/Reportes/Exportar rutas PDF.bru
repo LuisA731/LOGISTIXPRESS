@@ -1,0 +1,21 @@
+meta {
+  name: Exportar rutas PDF
+  type: http
+  seq: 14
+}
+
+get {
+  url: {{baseUrl}}/api/reportes/exportar?tipo=rutas&formato=pdf
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+docs {
+  Responde application/pdf. Cambia formato=xlsx para Excel.
+  Tipos: inventario, movimientos, rutas, entregas, auditoria, rotacion, usuarios.
+  Los tipos con fecha aceptan desde=YYYY-MM-DD&hasta=YYYY-MM-DD.
+}

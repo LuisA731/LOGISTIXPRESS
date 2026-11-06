@@ -1,0 +1,33 @@
+meta {
+  name: Crear OC / cita
+  type: http
+  seq: 25
+}
+
+post {
+  url: {{baseUrl}}/api/recepcion/ordenes
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "proveedor_id": 1,
+    "fecha_esperada": "2026-11-06",
+    "hora_estimada": "16:00",
+    "anden": "A-1",
+    "observaciones": "OC creada desde Bruno",
+    "lineas": [
+      { "producto_id": 2, "cantidad_solicitada": 10 },
+      { "producto_id": 5, "cantidad_solicitada": 4 }
+    ]
+  }
+}
+
+docs {
+  Ajusta fecha_esperada al día de la demo. Requiere admin u operador.
+}

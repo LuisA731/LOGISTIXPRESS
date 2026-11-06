@@ -1,0 +1,20 @@
+meta {
+  name: Consultar guía
+  type: http
+  seq: 9
+}
+
+get {
+  url: {{baseUrl}}/api/rastreo/LX-00011
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+docs {
+  LX-00011 pertenece a un pedido histórico de la semilla con entrega confirmada.
+  Prueba también LX-00071 (ruta planificada) o LX-00031 (entrega fallida).
+}

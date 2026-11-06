@@ -1,0 +1,19 @@
+meta {
+  name: Mapa PNG de ruta
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{baseUrl}}/api/rutas/{{rutaId}}/mapa
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+docs {
+  Responde image/png. En Bruno puedes guardar la respuesta como archivo para verla.
+}

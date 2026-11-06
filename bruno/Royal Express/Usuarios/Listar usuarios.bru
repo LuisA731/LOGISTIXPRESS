@@ -1,0 +1,19 @@
+meta {
+  name: Listar usuarios
+  type: http
+  seq: 13
+}
+
+get {
+  url: {{baseUrl}}/api/usuarios
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+docs {
+  Requiere rol admin.
+}

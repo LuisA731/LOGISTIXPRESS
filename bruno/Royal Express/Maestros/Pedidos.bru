@@ -1,0 +1,19 @@
+meta {
+  name: Pedidos
+  type: http
+  seq: 23
+}
+
+get {
+  url: {{baseUrl}}/api/maestros/pedidos?limite=50
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+docs {
+  El pedido 15 de la semilla queda en BORRADOR para demostrar picking.
+}

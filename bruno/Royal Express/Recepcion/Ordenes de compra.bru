@@ -1,0 +1,15 @@
+meta {
+  name: Órdenes de compra / citas
+  type: http
+  seq: 24
+}
+
+get {
+  url: {{baseUrl}}/api/recepcion/ordenes
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}

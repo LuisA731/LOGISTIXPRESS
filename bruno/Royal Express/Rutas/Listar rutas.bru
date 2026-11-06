@@ -1,0 +1,15 @@
+meta {
+  name: Listar rutas
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/api/rutas?limite=50
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
